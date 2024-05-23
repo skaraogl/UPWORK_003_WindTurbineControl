@@ -1,8 +1,0 @@
-function [outputArg1,outputArg2] = getAerodynamics(omega,theta,v)
-%GETAERODYNAMICS Summary of this function goes here
-%   Detailed explanation goes here
-
-
-
-end
-

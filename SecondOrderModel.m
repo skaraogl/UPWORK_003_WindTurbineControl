@@ -14,18 +14,19 @@ Tg = Dg*s;
 % Calculated generator power / W
 % Pe = Tg*101;
 
-% Conversion factor from generator to rotor / 1
-konv = omega_r0/omega_g0;
-
 %% NONLINEAR STATE SPACE MODEL
-x0 = [1; 1];
 u0 = 10;
+x0 = [omega_g0; u0];
 v = 18;
 
 % Jacobian for x1
-Kx1 = getAerodynamics(x0(1),x0(2),v)/J*x0(1)^2 - Dg/J;
+% Kx1 = -getAerodynamics(x0(1),x0(2),v)/(J*x0(1)^2) - Dg/J;
+% 
+% A = [Kx1 0; 0 -1/tau_theta];
 
-A = [Kx1 0; 0 -1/tau_theta];
+DERIVATIVES;
+
+A = [Kx1 Kx2; 0 -1/tau_theta];
 B = [0; 1/tau_theta];
-C = [1 0];
-D = 0;
+C = diag([1 1]);
+D = zeros(2,1);
