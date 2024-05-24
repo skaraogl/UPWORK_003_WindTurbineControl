@@ -45,9 +45,9 @@ a12 = (2*p_N(1)*x0(2) + p_N(2))/(J*x0(1));
 
 A = [a11 a12; 0 -1/tau_theta];
 
-% 4th approach
+% 4th approa
 % DERIVATIVES;
-% A = [Kx1 Kx2; 0 -1/tau_theta];
 
+% A = [Kx1 Kx2; 0 -1/tau_theta];
 B = [0; 1/tau_theta];
 C = diag([1 1]);
